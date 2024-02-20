@@ -1,0 +1,35 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+input CharacterFilterInput {
+  name: String!
+}
+
+input SaveSearchInput {
+  characters: [CharacterInput!]!
+}
+
+input CharacterInput {
+  name: String!
+  cines: [String!]
+  startShips: [String!]
+}
+
+
+type Character {
+  name: String!
+  cines: [String!]
+  starShips: [String!]
+}
+
+
+
+type Query {
+  searchCharacter(filter: CharacterFilterInput!): [Character!]
+  getSavedCharacter: [Character!]
+}
+
+type Mutation {
+  saveSearch(input: SaveSearchInput): String!
+}
